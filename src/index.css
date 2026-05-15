@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Unbounded:wght@200..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kinetic-Zero Design System
+   "Glanceability is King" - The 0.5 Second Rule
+   Built for motion, sunlight, and split-second decisions.
+*/
+
+@layer base {
+  :root {
+    /* === THE CANVAS === */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+
+    /* === THE STRUCTURE === */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+
+    /* === THE DATA (INK) === */
+    --primary: 240 10% 4%;
+    --primary-foreground: 0 0% 100%;
+
+    /* === THE TRIGGERS === */
+    /* Hyper-Volt: Velocity, Energy, Active Trail */
+    --volt: 72 100% 50%;
+    --volt-foreground: 240 10% 4%;
+
+    /* Signal-Red: Warfare, Danger, Enemy */
+    --alert: 4 100% 59%;
+    --alert-foreground: 0 0% 100%;
+
+    /* Cobalt: Economy, STX, Wallet */
+    --crypto: 220 100% 50%;
+    --crypto-foreground: 0 0% 100%;
+
+    /* Emerald: Success, Capture */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    /* Amber: Warning, Proximity */
+    --warning: 38 92% 50%;
+    --warning-foreground: 240 10% 4%;
+
+    /* === SEMANTIC TOKENS === */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 72 100% 50%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 4 100% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* === STRUCTURE === */
+    --fog: 220 14% 96%;
+    --ash: 220 13% 91%;
+    --slate: 215 16% 47%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 72 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* === SHADOWS === */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.12);
+    --shadow-deck: 0 -8px 30px rgba(0, 0, 0, 0.08);
+    --shadow-marker: 0 0 0 4px rgba(204, 255, 0, 0.4);
+    --shadow-volt: 0 4px 12px rgba(204, 255, 0, 0.3);
+    --shadow-volt-hover: 0 6px 16px rgba(204, 255, 0, 0.4);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 72 100% 50%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 72 100% 50%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --fog: 240 4% 16%;
+    --ash: 240 4% 20%;
+    --slate: 215 20% 65%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 72 100% 50%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 72 100% 50%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 72 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Display Typography - Unbounded */
+  .font-display {
+    font-family: 'Unbounded', cursive;
+    font-optical-sizing: auto;
+  }
+
+  /* Prevent overscroll on mobile */
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+
+  /* Variable Font Weight Animation Class */
+  .variable-speed-text {
+    transition: font-weight 0.3s ease, font-variation-settings 0.3s ease;
+  }
+
+  /* Map Pattern Background */
+  .bg-map-pattern {
+    background-image:
+      linear-gradient(#F3F4F6 2px, transparent 2px),
+      linear-gradient(90deg, #F3F4F6 2px, transparent 2px);
+    background-size: 40px 40px;
+  }
+
+  /* Custom Scrollbar for hidden feel */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+
+  /* GPS Pulse Animation */
+  .gps-pulse {
+    @apply relative;
+  }
+
+  .gps-pulse::after {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    animation: gps-pulse 2s ease-in-out infinite;
+  }
+
+  /* Slide Track */
+  .slide-track {
+    @apply relative w-full h-16 bg-fog rounded-full overflow-hidden;
+  }
+
+  /* Action Deck */
+  .action-deck {
+    @apply fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl p-6;
+    box-shadow: var(--shadow-deck);
+  }
+
+  /* Stat Display - Hero Numbers */
+  .stat-hero {
+    @apply font-display font-bold tracking-tight leading-none;
+  }
+
+  /* High Contrast Text for Outdoor Use */
+  .outdoor-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Touch Target Minimum */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Beacon Effect for STX Nodes */
+  .beacon {
+    @apply relative;
+  }
+
+  .beacon::before {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-32;
+    background: linear-gradient(to top, hsl(var(--crypto)), transparent);
+    opacity: 0.8;
+  }
+}
+
+@layer utilities {
+
+  /* Kinetic-Zero specific utilities */
+  .text-volt {
+    color: hsl(var(--volt));
+  }
+
+  .bg-volt {
+    background-color: hsl(var(--volt));
+  }
+
+  .text-alert {
+    color: hsl(var(--alert));
+  }
+
+  .bg-alert {
+    background-color: hsl(var(--alert));
+  }
+
+  .text-crypto {
+    color: hsl(var(--crypto));
+  }
+
+  .bg-crypto {
+    background-color: hsl(var(--crypto));
+  }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  .shadow-volt {
+    box-shadow: var(--shadow-volt);
+  }
+
+  .shadow-volt-hover {
+    box-shadow: var(--shadow-volt-hover);
+  }
+
+  .shadow-deck {
+    box-shadow: var(--shadow-deck);
+  }
+
+  .shadow-marker {
+    box-shadow: var(--shadow-marker);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes gps-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(204, 255, 0, 0.4);
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(204, 255, 0, 0);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slide-success {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: hsl(160 84% 39%);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes beacon-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes loop-capture {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+}

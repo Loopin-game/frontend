@@ -1,0 +1,16 @@
+{
+    "short_name": "Loopin",
+    "name": "Loopin - Location-Based Territory Game",
+    "description": "Capture real-world territory and compete for prizes",
+    "icons": [
+        {
+            "src": "/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#D4FF00",
+    "background_color": "#09090B"
+}
